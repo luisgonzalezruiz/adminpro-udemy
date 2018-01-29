@@ -5,14 +5,18 @@ import { NgModule } from '@angular/core';
 import { APP_ROUTES } from './app.routes';
 
 //modulos
+//este modulo se encuentra en la carpeta pages y levanta todos los componentes necesarios
 import { PagesModule } from './pages/pages.module';
-
+import { SettingsService } from './services/settings.service';
 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
+
+//temporales
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,9 +27,10 @@ import { RegisterComponent } from './login/register.component';
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule
+    PagesModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
