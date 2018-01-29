@@ -1,13 +1,18 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-//Rutas
+// Rutas
 import { APP_ROUTES } from './app.routes';
 
-//modulos
-//este modulo se encuentra en la carpeta pages y levanta todos los componentes necesarios
+// modulos
+// este modulo se encuentra en la carpeta pages y levanta todos los componentes necesarios
 import { PagesModule } from './pages/pages.module';
-import { SettingsService } from './services/settings.service';
+
+
+// servicios
+import { ServiceModule } from './services/service.module';
+
 
 
 import { AppComponent } from './app.component';
@@ -15,8 +20,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
 
-//temporales
+// temporales
 import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -28,9 +35,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
-  providers: [SettingsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

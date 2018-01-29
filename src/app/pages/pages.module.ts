@@ -11,14 +11,15 @@ import { SharedModule } from './../shared/shared.module';
 // graficos
 import { ChartsModule } from 'ng2-charts';
 
-//rutas relacionadas a las paginas
+// rutas relacionadas a las paginas
 import { PAGES_ROUTES } from './pages.routes';
 
 
-//temporal
+// temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
-import { AcountSettingsComponent } from './acount-settings/acount-settings.component';
+
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -31,7 +32,7 @@ import { AcountSettingsComponent } from './acount-settings/acount-settings.compo
       Graficas1Component,
      IncrementadorComponent,
      GraficoDonaComponent,
-     AcountSettingsComponent
+     AccountSettingsComponent
     ],
     exports: [
         PagesComponent,
