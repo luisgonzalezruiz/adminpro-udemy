@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivationEnd } from "@angular/router";
-import { Title } from '@angular/platform-browser';
+import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 
 
 @Component({
@@ -13,15 +13,23 @@ export class BreadcrumbsComponent implements OnInit {
   label: string = '';
   
   constructor( private router: Router,
-               public title: Title) { 
+               public title: Title,
+              public meta: Meta) { 
 
     this.getDataRoute()
         .subscribe( data => {
             console.log (data);
             this.label = data.titulo;
 
-            //agregamos valor al titulo de la pagina
+            // agregamos valor al titulo de la pagina
             this.title.setTitle( this.label );
+
+            let metaTag: MetaDefinition = {
+              name: '',
+              content: this.label
+            };
+
+            this.meta.updateTag(metaTag);
 
         });
 
@@ -31,7 +39,7 @@ export class BreadcrumbsComponent implements OnInit {
 
     return this.router.events
     .filter(evento => evento instanceof ActivationEnd)
-    .filter( (evento: ActivationEnd) => evento.snapshot.firstChild===null)  //evaluamos solo el evento ActivationEnd conn la propiedad snapshot y firstchild
+    .filter( (evento: ActivationEnd) => evento.snapshot.firstChild===null)  // evaluamos solo el evento ActivationEnd conn la propiedad snapshot y firstchild
     .map( (evento: ActivationEnd ) =>evento.snapshot.data );
 
   }
